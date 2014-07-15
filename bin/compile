@@ -39,6 +39,13 @@ install_java ${BUILD_DIR} ${javaVersion}
 jdk_overlay ${BUILD_DIR}
 echo "done"
 
+echo -n "-----> Installing compass"
+mkdir -p $CACHE_DIR/.gems
+gem install -i $CACHE_DIR/.gems --no-rdoc compass
+export PATH=$PATH:$CACHE_DIR/.gems/bin
+export GEM_PATH=$GEM_PATH:$CACHE_DIR/.gems
+echo "done"
+
 # home directory from perspective of SBT; we rename
 # it because otherwise the project root and $HOME
 # are the same, and by default .sbt has a (different)
