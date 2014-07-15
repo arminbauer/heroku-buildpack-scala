@@ -155,7 +155,7 @@ if is_play $BUILD_DIR ; then
   fi
   if is_play $BUILD_DIR && [ -d $BUILD_DIR/.jdk ] ; then
     echo "-----> Dropping jdk from the slug"
-    rm -rf $BUILD_DIR/.jdk
+#    rm -rf $BUILD_DIR/.jdk
   fi
 fi
 
