@@ -153,6 +153,10 @@ if is_play $BUILD_DIR ; then
     rm -rf $BUILD_DIR/target/streams
     rm -rf $BUILD_DIR/target/resolution-cache
   fi
+  if is_play $BUILD_DIR && [ -d $BUILD_DIR/.jdk ] ; then
+    echo "-----> Dropping jdk from the slug"
+    rm -rf $BUILD_DIR/.jdk
+  fi
 fi
 
 # Move compiled app back to where Heroku expects it
