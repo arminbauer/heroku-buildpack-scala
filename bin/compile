@@ -139,6 +139,7 @@ done
 
 # drop useless directories from slug for play only
 if is_play $BUILD_DIR ; then
+  du -hs $BUILD_DIR/*
   if [ -d $SBT_USER_HOME/.ivy2 ]; then
     echo "-----> Dropping ivy cache2 from the slug"
     rm -rf $SBT_USER_HOME/.ivy2
@@ -160,6 +161,7 @@ if is_play $BUILD_DIR ; then
     echo "-----> Dropping jdk from the slug"
 #    rm -rf $BUILD_DIR/.jdk
   fi
+  du -hs $BUILD_DIR/*
 fi
 
 # Move compiled app back to where Heroku expects it
