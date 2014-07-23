@@ -140,7 +140,7 @@ done
 # drop useless directories from slug for play only
 if is_play $BUILD_DIR ; then
   if [ -d $SBT_USER_HOME/.ivy2 ]; then
-    echo "-----> Dropping ivy cache from the slug"
+    echo "-----> Dropping ivy cache2 from the slug"
     rm -rf $SBT_USER_HOME/.ivy2
   fi
   if [ -d $BUILD_DIR/project/boot ] ; then
@@ -149,9 +149,12 @@ if is_play $BUILD_DIR ; then
   fi
   if [ -d $BUILD_DIR/target ] ; then
     echo "-----> Dropping compilation artifacts from the slug"
+    ls $BUILD_DIR
+    ls $BUILD_DIR/target
     rm -rf $BUILD_DIR/target/scala-*
     rm -rf $BUILD_DIR/target/streams
     rm -rf $BUILD_DIR/target/resolution-cache
+    ls $BUILD_DIR/target
   fi
   if is_play $BUILD_DIR && [ -d $BUILD_DIR/.jdk ] ; then
     echo "-----> Dropping jdk from the slug"
